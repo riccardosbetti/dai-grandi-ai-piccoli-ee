@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lettera di auguri</title>
+  </head>
+  <body>
+    <h1>Lettera di auguri per <span id="name"></span></h1>
+    <p>Ciao <span id="name"></span>,</p>
+    <p>Auguri di buon compleanno! Ti auguro un anno pieno di felicità e successo.</p>
+    <p>Cordiali saluti,</p>
+    <p>Il tuo amico</p>
+    
+    <button onclick="downloadPDF()">Scarica la lettera in PDF</button>
+
+    <script>
+      function downloadPDF() {
+        const name = document.getElementById("name").textContent;
+        const pdf = new jsPDF();
+        pdf.text(`Ciao ${name},`, 20, 20);
+        pdf.text("Auguri di buon compleanno! Ti auguro un anno pieno di felicità e successo.", 20, 30);
+        pdf.text("Cordiali saluti,", 20, 40);
+        pdf.text("Il tuo amico", 20, 50);
+        pdf.save("Lettera_di_auguri.pdf");
+      }
+    </script>
+  </body>
+</html>
